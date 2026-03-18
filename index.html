@@ -8,17 +8,43 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="brand-title">M</h1> 
-        
-        <h2>哎呀！我們的薯條鍋暫時過熱了 🍟</h2>
-        <p>工程師們正全速搶修中，請不要擔心，您的訂單資料都很安全。<br>在等待的同時，要不要先來點虛擬薯條？</p>
-        
-        <div class="interactive-area">
-            <button id="fry-btn">🍟 炸一根薯條</button>
-            <p>你已經炸了 <span id="fry-count">0</span> 根薯條！</p>
+        <div id="waiting-view">
+            <h1 class="brand-title">M</h1>
+            <h2>麥當勞叔叔外送中 🍟</h2>
+            <p>工程師們正全速搶修中，請不要擔心，您的訂單資料都很安全。<br><br>⬇️幫助麥當勞叔叔加快外送⬇️</p>
+
+            <div class="interactive-area">
+                <button id="fry-btn">🕹️ 進入外送小遊戲</button>
+            </div>
+
+            <button class="retry-btn" onclick="location.reload()">重新整理頁面</button>
         </div>
 
-        <button class="retry-btn" onclick="location.reload()">重新整理頁面</button>
+        <div id="game-view" class="hidden">
+            <div class="game-hud">
+                <span>分數：<strong id="score">0</strong></span>
+            </div>
+
+            <div id="game-board">
+                <div class="target-hint">
+                    <span class="target-title">TARGETS</span>
+                    <div class="target-list" aria-label="target foods">
+                        <img id="target-slot-0" src="hamburger.png" alt="target item 1" />
+                        <img id="target-slot-1" src="cola.png" alt="target item 2" />
+                        <img id="target-slot-2" src="fries.png" alt="target item 3" />
+                    </div>
+                </div>
+                <div id="falling-layer"></div>
+                <img id="catcher" src="mcd-uncle.png" alt="麥當勞叔叔" />
+            </div>
+
+            <p id="game-result" class="game-result"></p>
+
+            <div class="game-actions">
+                <button id="start-game-btn">重新開始</button>
+                <button id="exit-game-btn" class="retry-btn">返回等待頁</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

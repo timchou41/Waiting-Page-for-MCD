@@ -5,22 +5,54 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     margin: 0;
     text-align: center;
+    overflow: hidden;
 }
 
 .container {
     background-color: rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    padding: 24px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: min(99vw, 1140px);
+    max-height: 98dvh;
 }
 
 .brand-title {
     color: #FFC72C; /* 麥當勞黃 */
-    font-size: 80px;
-    margin: 0 0 20px 0;
+    font-size: 88px;
+    margin: 0 0 10px 0;
+}
+
+#waiting-view h2 {
+    font-size: clamp(34px, 4.8vw, 56px);
+    margin: 8px 0 12px;
+}
+
+#waiting-view p {
+    font-size: clamp(18px, 2.1vw, 26px);
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 920px;
+}
+
+#waiting-view #fry-btn {
+    font-size: clamp(22px, 2.4vw, 30px);
+    padding: 18px 38px;
+}
+
+#waiting-view .retry-btn {
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.interactive-area {
+    margin-top: 8px;
 }
 
 button {
@@ -32,7 +64,7 @@ button {
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 14px;
     transition: transform 0.2s;
 }
 
@@ -44,5 +76,171 @@ button:hover {
     background-color: white;
     color: #333;
     font-size: 14px;
-    margin-top: 40px;
+    margin-top: 20px;
+}
+
+.game-help {
+    margin-top: 0;
+    opacity: 0.95;
+}
+
+.target-hint {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 16px;
+    padding: 12px 16px;
+}
+
+.target-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.target-list {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.target-list img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 999px;
+    padding: 5px;
+}
+
+.target-list img.is-current {
+    outline: 3px solid #FFC72C;
+    transform: scale(1.08);
+}
+
+.game-hud {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 8px auto;
+    max-width: 1040px;
+    font-size: 22px;
+}
+
+#game-board {
+    position: relative;
+    width: min(97vw, 1080px);
+    height: min(76dvh, 740px);
+    margin: 0 auto;
+    border: 2px dashed rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+#falling-layer {
+    position: absolute;
+    inset: 0;
+}
+
+.falling-item {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    padding: 0;
+    margin: 0;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+    user-select: none;
+    pointer-events: none;
+}
+
+#catcher {
+    position: absolute;
+    width: 130px;
+    height: 145px;
+    object-fit: contain;
+    bottom: 8px;
+    left: calc(50% - 65px);
+    user-select: none;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+#catcher.is-crashed {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    filter: none;
+    z-index: 5;
+}
+
+.game-result {
+    min-height: 24px;
+    margin: 8px 0 2px;
+    font-weight: bold;
+}
+
+.game-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.game-actions .retry-btn {
+    margin-top: 14px;
+}
+
+@media (max-height: 760px) {
+    .container {
+        padding: 16px;
+    }
+
+    .brand-title {
+        font-size: 52px;
+        margin-bottom: 6px;
+    }
+
+    .game-help {
+        margin: 4px 0;
+        font-size: 14px;
+    }
+
+    .target-hint {
+        top: 8px;
+        left: 8px;
+        padding: 9px 12px;
+        gap: 8px;
+    }
+
+    .target-title {
+        font-size: 16px;
+    }
+
+    .target-list img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .game-hud {
+        margin: 8px auto;
+        font-size: 18px;
+    }
+
+    #game-board {
+        height: min(64dvh, 520px);
+    }
 }
