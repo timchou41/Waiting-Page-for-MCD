@@ -1,0 +1,48 @@
+body {
+    background-color: #DA291C; /* 麥當勞紅 */
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.brand-title {
+    color: #FFC72C; /* 麥當勞黃 */
+    font-size: 80px;
+    margin: 0 0 20px 0;
+}
+
+button {
+    background-color: #FFC72C;
+    color: #DA291C;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05); /* 滑鼠游標移過去時會微微放大 */
+}
+
+.retry-btn {
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+    margin-top: 40px;
+}
